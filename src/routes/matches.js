@@ -8,7 +8,7 @@ const MAX_LIMIT = 50;
 
 export const router = Router();
 
-router.get('/', (req,res) => {
+router.get('/', async (req,res) => {
     const parsed = listMatchesQuerySchema.safeParse(req.query);
     if(!parsed.success) {
         return res.status(400).json({ error: 'Invalid query', details: JSON.stringify(parsed.error) });
